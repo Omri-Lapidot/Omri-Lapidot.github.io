@@ -3,185 +3,350 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Your Name | Portfolio</title>
-  <meta name="description" content="Personal professional portfolio.">
+  <meta name="description" content="Personal professional portfolio">
 
   <style>
     :root {
-      --accent: #287d78;
-      --text: #29343d;
-      --muted: #687782;
-      --sidebar: #f5f7f7;
-      --border: #e2e8e8;
+      --accent: #168b96;
+      --accent-dark: #086779;
+      --text: #253b52;
+      --muted: #778ba2;
+      --border: #e1e8ee;
+      --sidebar-width: 380px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      line-height: 1.7;
       background: #fff;
+      line-height: 1.7;
     }
+
+    /* Two-column page layout */
 
     .layout {
-      display: grid;
-      grid-template-columns: 290px minmax(0, 800px);
-      gap: 60px;
-      max-width: 1250px;
-      margin: auto;
-      padding: 45px 30px;
+      min-height: 100vh;
     }
 
+    /* LEFT SIDEBAR */
+
     .sidebar {
-      position: sticky;
-      top: 35px;
-      align-self: start;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      padding: 30px 24px;
-      background: var(--sidebar);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      padding: 0 35px 30px;
+
+      background:
+        linear-gradient(
+          rgba(0, 35, 52, 0.48),
+          rgba(0, 27, 43, 0.82)
+        ),
+        url("background.jpg") center center / cover no-repeat;
+
+      color: white;
+    }
+
+    .profile-content {
+      width: 100%;
+      margin: auto 0;
+      padding: 35px 0;
     }
 
     .profile-photo {
-      width: 145px;
-      height: 145px;
+      display: block;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 22px;
       border-radius: 50%;
       object-fit: cover;
-      background: #e0e6e6;
-      border: 4px solid #fff;
-      box-shadow: 0 3px 14px #00000012;
+      border: 4px solid white;
+      box-shadow: 0 0 0 5px rgba(22, 139, 150, 0.8);
     }
 
     .sidebar h1 {
-      font-size: 1.65rem;
-      line-height: 1.3;
-      margin: 16px 0 0;
+      font-size: 2rem;
+      line-height: 1.25;
+      margin: 0 0 8px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
     }
 
-    .role {
-      color: var(--accent);
-      font-weight: bold;
-      margin: 5px 0 16px;
+    .sidebar .job-title {
+      font-size: 1.05rem;
+      color: #76e2e6;
+      margin: 0;
     }
 
-    .sidebar p {
-      color: var(--muted);
-      text-align: left;
+    .accent-line {
+      width: 48px;
+      height: 4px;
+      margin: 22px auto;
+      background: #25c3c9;
+    }
+
+    .sidebar .bio {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin: 0 auto 28px;
+      color: rgba(255, 255, 255, 0.95);
     }
 
     .social-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 13px;
-      margin-top: 20px;
+      gap: 20px;
+      margin-top: 25px;
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
 
     .social-links a {
+      color: white;
       font-size: 0.9rem;
       font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
-    main { min-width: 0; }
+    .social-links a:hover {
+      color: #72e5e8;
+    }
 
-    .nav {
+    .sidebar-bottom {
+      margin-top: 35px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* RIGHT CONTENT */
+
+    .main-content {
+      margin-left: var(--sidebar-width);
+      min-height: 100vh;
+      padding: 0 55px 45px;
+    }
+
+    /* TOP NAVIGATION */
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      padding-bottom: 18px;
-      margin-bottom: 35px;
+      align-items: center;
+      gap: 8px 28px;
+      padding: 20px 0 0;
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.97);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav a {
+    .top-nav a {
+      display: inline-block;
+      padding: 0 0 14px;
+      border-bottom: 3px solid transparent;
       color: var(--text);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
-    section {
-      padding-bottom: 30px;
-      margin-bottom: 30px;
+    .top-nav a:hover,
+    .top-nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* CONTENT SECTIONS */
+
+    .content-section {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 18px;
+      padding: 27px 5px 29px;
       border-bottom: 1px solid var(--border);
-      scroll-margin-top: 25px;
+      scroll-margin-top: 85px;
     }
 
-    section:last-of-type { border-bottom: none; }
-
-    h2 {
-      font-size: 1.6rem;
-      line-height: 1.35;
-      margin: 0 0 15px;
+    .section-icon {
+      color: var(--accent-dark);
+      font-size: 1.8rem;
+      line-height: 1.4;
+      text-align: center;
     }
 
-    h3 {
-      font-size: 1.1rem;
-      margin: 0 0 5px;
+    .section-body {
+      min-width: 0;
     }
 
-    .placeholder { color: var(--muted); }
-
-    .project {
-      padding: 18px 0;
-      border-top: 1px solid var(--border);
+    .section-body h2 {
+      font-size: 1.35rem;
+      line-height: 1.4;
+      margin: 0 0 8px;
+      color: var(--text);
     }
 
-    .project p {
+    .section-body p {
+      color: var(--muted);
       margin: 0;
+      font-size: 0.96rem;
+    }
+
+    .placeholder {
       color: var(--muted);
     }
 
-    .tags {
+    .entry {
+      padding: 14px 0 5px;
+    }
+
+    .entry + .entry {
+      border-top: 1px solid #edf1f4;
+      margin-top: 10px;
+    }
+
+    .entry h3 {
+      font-size: 1.02rem;
+      margin: 0 0 5px;
+      color: var(--text);
+    }
+
+    .entry .meta {
+      font-size: 0.88rem;
+      margin-bottom: 7px;
+    }
+
+    /* SKILLS */
+
+    .skills-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 14px;
     }
 
-    .tag {
-      background: #eaf3f2;
-      color: #286b67;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+    .skill-tag {
+      display: inline-block;
+      padding: 5px 13px;
+      border-radius: 5px;
+      background: #eaf5f6;
+      color: var(--accent-dark);
+      font-size: 0.87rem;
     }
+
+    /* FOOTER */
 
     footer {
+      padding: 24px 5px 0;
       color: var(--muted);
-      font-size: 0.85rem;
-      padding-top: 12px;
+      font-size: 0.83rem;
     }
 
-    @media (max-width: 850px) {
-      .layout {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        gap: 35px;
+    /* TABLET AND MOBILE */
+
+    @media (max-width: 1000px) {
+      :root {
+        --sidebar-width: 300px;
+      }
+
+      .main-content {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      .top-nav {
+        gap: 8px 16px;
+      }
+
+      .top-nav a {
+        font-size: 0.84rem;
       }
 
       .sidebar {
-        position: static;
-        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
       }
 
-      .sidebar p { text-align: center; }
+      .profile-photo {
+        width: 125px;
+        height: 125px;
+      }
+    }
 
-      main { width: 100%; }
+    @media (max-width: 760px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 520px;
+        padding: 30px 25px;
+      }
 
-      .nav { gap: 14px; }
+      .profile-content {
+        margin: auto 0;
+        padding: 25px 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 0 22px 35px;
+      }
+
+      .top-nav {
+        position: sticky;
+        gap: 8px 18px;
+        padding-top: 16px;
+      }
+
+      .content-section {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 12px;
+        padding: 24px 0;
+      }
+
+      .section-icon {
+        font-size: 1.45rem;
+      }
+
+      .section-body h2 {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .top-nav {
+        gap: 6px 13px;
+      }
+
+      .top-nav a {
+        font-size: 0.8rem;
+      }
+
+      .main-content {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
     }
   </style>
 </head>
@@ -189,102 +354,194 @@
 <body>
   <div class="layout">
 
-    <!-- SIDEBAR PROFILE -->
+    <!-- LEFT SIDEBAR -->
     <aside class="sidebar">
-      <img
-        class="profile-photo"
-        src="profile.jpg"
-        alt="Your profile photo"
-      >
+      <div class="profile-content">
 
-      <h1>Your Name</h1>
-      <div class="role">Your Professional Title</div>
+        <img
+          class="profile-photo"
+          src="profile.jpg"
+          alt="Your profile photo"
+        >
 
-      <p class="placeholder">About me...</p>
+        <h1>Your Name</h1>
 
-      <div class="social-links">
-        <a href="#">LinkedIn</a>
-        <a href="#">Google Scholar</a>
-        <a href="#">GitHub</a>
-        <a href="#">Email</a>
+        <p class="job-title">Your Professional Title</p>
+
+        <div class="accent-line"></div>
+
+        <p class="bio">
+          About me...
+        </p>
+
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Google Scholar">Scholar</a>
+          <a href="#" aria-label="GitHub">GitHub</a>
+          <a href="#" aria-label="Email">Email</a>
+        </div>
+
+      </div>
+
+      <div class="sidebar-bottom">
+        Your personal portfolio
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#about">About me</a>
-        <a href="#experience">Work experience</a>
+    <!-- RIGHT CONTENT -->
+    <main class="main-content">
+
+      <!-- NAVIGATION -->
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#about" class="active">About Me</a>
+        <a href="#experience">Work Experience</a>
         <a href="#education">Education</a>
         <a href="#publications">Publications</a>
         <a href="#skills">Skills</a>
-        <a href="#contact">Contact me</a>
+        <a href="#contact">Contact Me</a>
       </nav>
 
-      <section id="about">
-        <h2>About me...</h2>
-        <p class="placeholder">Write about yourself here...</p>
-      </section>
-
-      <section id="experience">
-        <h2>Work experience...</h2>
-
-        <article class="project">
-          <h3>Position / Job title</h3>
-          <p>Organization · Dates · Description...</p>
-        </article>
-
-        <article class="project">
-          <h3>Previous position / Job title</h3>
-          <p>Organization · Dates · Description...</p>
-        </article>
-      </section>
-
-      <section id="education">
-        <h2>Education...</h2>
-
-        <article class="project">
-          <h3>Degree / Qualification</h3>
-          <p>Institution · Dates · Details...</p>
-        </article>
-
-        <article class="project">
-          <h3>Previous degree / Qualification</h3>
-          <p>Institution · Dates · Details...</p>
-        </article>
-      </section>
-
-      <section id="publications">
-        <h2>Publications...</h2>
-        <p class="placeholder">
-          Add your publications and links here...
-        </p>
-      </section>
-
-      <section id="skills">
-        <h2>Skills...</h2>
-
-        <div class="tags">
-          <span class="tag">Skill 1</span>
-          <span class="tag">Skill 2</span>
-          <span class="tag">Skill 3</span>
-          <span class="tag">Skill 4</span>
-          <span class="tag">Skill 5</span>
+      <!-- ABOUT ME -->
+      <section class="content-section" id="about">
+        <div class="section-icon" aria-hidden="true">♙</div>
+        <div class="section-body">
+          <h2>About Me</h2>
+          <p class="placeholder">
+            Write a short introduction about yourself here...
+          </p>
         </div>
       </section>
 
-      <section id="contact">
-        <h2>Contact me...</h2>
-        <p class="placeholder">
-          Add your contact details here...
-        </p>
+      <!-- WORK EXPERIENCE -->
+      <section class="content-section" id="experience">
+        <div class="section-icon" aria-hidden="true">▣</div>
+        <div class="section-body">
+          <h2>Work Experience</h2>
+
+          <div class="entry">
+            <h3>Job Title / Position</h3>
+            <p class="meta">Organization · Dates</p>
+            <p class="placeholder">
+              Describe your responsibilities and achievements here...
+            </p>
+          </div>
+
+          <div class="entry">
+            <h3>Previous Job Title / Position</h3>
+            <p class="meta">Organization · Dates</p>
+            <p class="placeholder">
+              Describe your responsibilities and achievements here...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="content-section" id="education">
+        <div class="section-icon" aria-hidden="true">♧</div>
+        <div class="section-body">
+          <h2>Education</h2>
+
+          <div class="entry">
+            <h3>Degree / Qualification</h3>
+            <p class="meta">Institution · Dates</p>
+            <p class="placeholder">
+              Add details about your studies here...
+            </p>
+          </div>
+
+          <div class="entry">
+            <h3>Previous Degree / Qualification</h3>
+            <p class="meta">Institution · Dates</p>
+            <p class="placeholder">
+              Add details about your studies here...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section class="content-section" id="publications">
+        <div class="section-icon" aria-hidden="true">▤</div>
+        <div class="section-body">
+          <h2>Publications</h2>
+
+          <div class="entry">
+            <h3>Publication Title</h3>
+            <p class="placeholder">
+              Authors · Journal · Year · Add publication link here...
+            </p>
+          </div>
+
+          <div class="entry">
+            <h3>Another Publication Title</h3>
+            <p class="placeholder">
+              Authors · Journal · Year · Add publication link here...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="content-section" id="skills">
+        <div class="section-icon" aria-hidden="true">⚙</div>
+        <div class="section-body">
+          <h2>Skills</h2>
+          <p class="placeholder">
+            List your technical and professional skills here...
+          </p>
+
+          <div class="skills-list">
+            <span class="skill-tag">Skill 1</span>
+            <span class="skill-tag">Skill 2</span>
+            <span class="skill-tag">Skill 3</span>
+            <span class="skill-tag">Skill 4</span>
+            <span class="skill-tag">Skill 5</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="content-section" id="contact">
+        <div class="section-icon" aria-hidden="true">✉</div>
+        <div class="section-body">
+          <h2>Contact Me</h2>
+          <p class="placeholder">
+            Add your email address and professional contact links here...
+          </p>
+        </div>
       </section>
 
       <footer>
         © Your Name
       </footer>
-    </main>
 
+    </main>
   </div>
+
+  <script>
+    const navLinks = document.querySelectorAll(".top-nav a");
+    const sections = document.querySelectorAll(".content-section");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + entry.target.id
+              );
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -65% 0px"
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>

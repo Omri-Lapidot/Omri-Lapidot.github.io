@@ -4,22 +4,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional portfolio, research, experience, and publications.">
+  <title>Your Name | Marine Science Portfolio</title>
 
-  <title>Your Name | Portfolio</title>
-  <meta name="description" content="Personal professional portfolio">
+  <!-- Font Awesome icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <!-- Professional typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
-      --accent: #168b96;
-      --accent-dark: #086779;
-      --text: #253b52;
-      --muted: #778ba2;
-      --border: #e1e8ee;
-      --sidebar-width: 380px;
+      --navy: #102a3a;
+      --deep-navy: #071b29;
+      --teal: #16a6a3;
+      --light-teal: #dff5f3;
+      --text: #243746;
+      --muted: #647583;
+      --background: #f5f8fa;
+      --white: #ffffff;
+      --sidebar-width: 360px;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -28,121 +46,118 @@
     }
 
     body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: "Inter", sans-serif;
       color: var(--text);
-      background: #fff;
+      background: var(--background);
       line-height: 1.7;
     }
 
-    /* Two-column page layout */
-
-    .layout {
-      min-height: 100vh;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     /* LEFT SIDEBAR */
 
     .sidebar {
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0 auto 0 0;
       width: var(--sidebar-width);
-      height: 100vh;
+      min-height: 100vh;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      padding: 45px 32px;
       text-align: center;
-      padding: 0 35px 30px;
+      color: white;
 
       background:
         linear-gradient(
-          rgba(0, 35, 52, 0.48),
-          rgba(0, 27, 43, 0.82)
+          180deg,
+          rgba(4, 28, 43, 0.42),
+          rgba(4, 23, 37, 0.91)
         ),
-        url("background.jpg") center center / cover no-repeat;
+        url("background.png") center center / cover no-repeat;
 
-      color: white;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 100;
     }
 
-    .profile-content {
-      width: 100%;
-      margin: auto 0;
-      padding: 35px 0;
-    }
-
-    .profile-photo {
-      display: block;
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 22px;
-      border-radius: 50%;
+    .profile-image {
+      width: 145px;
+      height: 145px;
       object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 0 0 5px rgba(22, 139, 150, 0.8);
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      margin-bottom: 24px;
     }
 
-    .sidebar h1 {
-      font-size: 2rem;
+    .profile-name {
+      font-size: 29px;
+      font-weight: 800;
       line-height: 1.25;
-      margin: 0 0 8px;
-      font-weight: 700;
-      overflow-wrap: anywhere;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
     }
 
-    .sidebar .job-title {
-      font-size: 1.05rem;
-      color: #76e2e6;
-      margin: 0;
+    .profile-title {
+      color: #9de9e4;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
-    .accent-line {
-      width: 48px;
-      height: 4px;
-      margin: 22px auto;
-      background: #25c3c9;
-    }
-
-    .sidebar .bio {
-      font-size: 0.98rem;
+    .profile-description {
+      max-width: 280px;
+      color: rgba(255, 255, 255, 0.83);
+      font-size: 14px;
       line-height: 1.8;
-      margin: 0 auto 28px;
-      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 28px;
     }
 
     .social-links {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      margin-top: 25px;
+      gap: 14px;
+      margin-bottom: 30px;
     }
 
     .social-links a {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       color: white;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.2s ease;
+      font-size: 17px;
+      transition: background 0.25s, transform 0.25s;
     }
 
     .social-links a:hover {
-      color: #72e5e8;
+      background: var(--teal);
+      border-color: var(--teal);
+      transform: translateY(-3px);
     }
 
-    .sidebar-bottom {
-      margin-top: 35px;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.75);
+    .sidebar-note {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    /* RIGHT CONTENT */
+    /* MAIN CONTENT */
 
     .main-content {
       margin-left: var(--sidebar-width);
       min-height: 100vh;
-      padding: 0 55px 45px;
     }
 
     /* TOP NAVIGATION */
@@ -150,147 +165,357 @@
     .top-nav {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 50;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 8px 28px;
-      padding: 20px 0 0;
-      margin-bottom: 10px;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid var(--border);
+      gap: 25px;
+      padding: 0 45px;
+      min-height: 76px;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #e5ebef;
+      backdrop-filter: blur(12px);
+      overflow-x: auto;
     }
 
     .top-nav a {
-      display: inline-block;
-      padding: 0 0 14px;
-      border-bottom: 3px solid transparent;
-      color: var(--text);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.2s ease;
+      position: relative;
+      flex-shrink: 0;
+      padding: 26px 0 23px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.25px;
+      transition: color 0.2s;
     }
 
     .top-nav a:hover,
     .top-nav a.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+      color: var(--teal);
+    }
+
+    .top-nav a.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--teal);
+      border-radius: 3px 3px 0 0;
     }
 
     /* CONTENT SECTIONS */
 
-    .content-section {
-      display: grid;
-      grid-template-columns: 48px minmax(0, 1fr);
-      gap: 18px;
-      padding: 27px 5px 29px;
-      border-bottom: 1px solid var(--border);
-      scroll-margin-top: 85px;
+    .content-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 55px 70px;
+    }
+
+    .section {
+      padding: 48px 0;
+      border-bottom: 1px solid #e2e9ed;
+      scroll-margin-top: 95px;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 26px;
     }
 
     .section-icon {
-      color: var(--accent-dark);
-      font-size: 1.8rem;
-      line-height: 1.4;
-      text-align: center;
+      flex-shrink: 0;
+      width: 49px;
+      height: 49px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--light-teal);
+      color: #087f82;
+      border-radius: 13px;
+      font-size: 21px;
     }
 
-    .section-body {
-      min-width: 0;
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
     }
 
-    .section-body h2 {
-      font-size: 1.35rem;
-      line-height: 1.4;
-      margin: 0 0 8px;
-      color: var(--text);
-    }
-
-    .section-body p {
+    .section-subtitle {
+      margin-top: 3px;
       color: var(--muted);
-      margin: 0;
-      font-size: 0.96rem;
+      font-size: 12px;
     }
 
-    .placeholder {
-      color: var(--muted);
+    .section p {
+      margin-bottom: 16px;
+      font-size: 15px;
+      line-height: 1.9;
     }
 
-    .entry {
-      padding: 14px 0 5px;
+    .accent {
+      color: #087f82;
+      font-weight: 600;
     }
 
-    .entry + .entry {
-      border-top: 1px solid #edf1f4;
-      margin-top: 10px;
+    /* INTRODUCTION */
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    .entry h3 {
-      font-size: 1.02rem;
-      margin: 0 0 5px;
-      color: var(--text);
+    .intro-title {
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
     }
 
-    .entry .meta {
-      font-size: 0.88rem;
+    .intro-title span {
+      color: var(--teal);
+    }
+
+    /* EXPERIENCE AND EDUCATION ITEMS */
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 24px 26px;
+      background: var(--white);
+      border: 1px solid #e6edf0;
+      border-left: 4px solid var(--teal);
+      border-radius: 9px;
+      box-shadow: 0 4px 18px rgba(17, 45, 60, 0.035);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(17, 45, 60, 0.08);
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 8px;
+    }
+
+    .item-title {
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .item-organization {
+      color: #087f82;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .item-date {
+      flex-shrink: 0;
+      padding: 5px 10px;
+      background: var(--light-teal);
+      color: #087f82;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .timeline-item p {
+      margin-top: 12px;
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .timeline-item ul {
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+
+    .timeline-item li {
+      padding-left: 3px;
       margin-bottom: 7px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* PUBLICATIONS */
+
+    .publication-item {
+      padding: 22px 0;
+      border-bottom: 1px solid #e4eaee;
+    }
+
+    .publication-item:first-child {
+      padding-top: 0;
+    }
+
+    .publication-item:last-child {
+      border-bottom: none;
+    }
+
+    .publication-title {
+      color: var(--navy);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .publication-meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .publication-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #087f82;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .publication-link:hover {
+      text-decoration: underline;
     }
 
     /* SKILLS */
 
-    .skills-list {
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 22px;
+      background: var(--white);
+      border: 1px solid #e6edf0;
+      border-radius: 9px;
+    }
+
+    .skill-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .skill-card h3 i {
+      color: var(--teal);
+    }
+
+    .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      gap: 8px;
     }
 
     .skill-tag {
-      display: inline-block;
-      padding: 5px 13px;
+      padding: 6px 10px;
+      background: #f0f5f7;
+      color: #435766;
       border-radius: 5px;
-      background: #eaf5f6;
-      color: var(--accent-dark);
-      font-size: 0.87rem;
+      font-size: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      padding: 30px;
+      background: var(--navy);
+      color: white;
+      border-radius: 12px;
+    }
+
+    .contact-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      padding: 12px 20px;
+      background: var(--teal);
+      color: white;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+
+    .contact-button:hover {
+      background: #128e8b;
     }
 
     /* FOOTER */
 
     footer {
-      padding: 24px 5px 0;
-      color: var(--muted);
-      font-size: 0.83rem;
+      padding: 25px 0 10px;
+      color: #82909a;
+      text-align: center;
+      font-size: 11px;
     }
 
-    /* TABLET AND MOBILE */
+    /* MOBILE LAYOUT */
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
       :root {
         --sidebar-width: 300px;
       }
 
-      .main-content {
-        padding-left: 30px;
-        padding-right: 30px;
+      .sidebar {
+        padding: 35px 24px;
       }
 
       .top-nav {
-        gap: 8px 16px;
+        gap: 20px;
+        padding: 0 28px;
       }
 
-      .top-nav a {
-        font-size: 0.84rem;
+      .content-wrapper {
+        padding: 25px 32px 55px;
       }
 
-      .sidebar {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-
-      .profile-photo {
-        width: 125px;
-        height: 125px;
+      .profile-name {
+        font-size: 25px;
       }
     }
 
@@ -298,250 +523,570 @@
       .sidebar {
         position: relative;
         width: 100%;
-        height: auto;
-        min-height: 520px;
-        padding: 30px 25px;
+        min-height: auto;
+        padding: 45px 24px;
+        background-position: center 42%;
       }
 
-      .profile-content {
-        margin: auto 0;
-        padding: 25px 0;
+      .profile-image {
+        width: 120px;
+        height: 120px;
+      }
+
+      .profile-description {
+        max-width: 430px;
       }
 
       .main-content {
         margin-left: 0;
-        padding: 0 22px 35px;
       }
 
       .top-nav {
         position: sticky;
-        gap: 8px 18px;
-        padding-top: 16px;
-      }
-
-      .content-section {
-        grid-template-columns: 36px minmax(0, 1fr);
-        gap: 12px;
-        padding: 24px 0;
-      }
-
-      .section-icon {
-        font-size: 1.45rem;
-      }
-
-      .section-body h2 {
-        font-size: 1.2rem;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .top-nav {
-        gap: 6px 13px;
+        min-height: 60px;
+        gap: 23px;
+        padding: 0 20px;
       }
 
       .top-nav a {
-        font-size: 0.8rem;
+        padding: 20px 0 18px;
+        font-size: 11px;
       }
 
-      .main-content {
-        padding-left: 16px;
-        padding-right: 16px;
+      .content-wrapper {
+        padding: 15px 22px 40px;
+      }
+
+      .section {
+        padding: 38px 0;
+      }
+
+      .section-heading h2 {
+        font-size: 22px;
+      }
+
+      .intro-title {
+        font-size: 34px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .item-top {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .item-date {
+        align-self: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="layout">
 
-    <!-- LEFT SIDEBAR -->
-    <aside class="sidebar">
-      <div class="profile-content">
+  <!-- ==========================================
+       LEFT SIDEBAR
+       Edit your name, title, description and links.
+       ========================================== -->
 
-        <img
-          class="profile-photo"
-          src="profile.jpg"
-          alt="Your profile photo"
-        >
+  <aside class="sidebar">
 
-        <h1>Your Name</h1>
+    <!-- Replace profile.jpg with your own professional photo -->
+    <img
+      class="profile-image"
+      src="profile.jpg"
+      alt="Professional profile photo"
+    >
 
-        <p class="job-title">Your Professional Title</p>
+    <h1 class="profile-name">Your Name</h1>
 
-        <div class="accent-line"></div>
+    <p class="profile-title">Marine Scientist</p>
 
-        <p class="bio">
-          About me...
-        </p>
+    <p class="profile-description">
+      Write a short introduction about yourself, your professional
+      background, your research interests, and the work you are
+      passionate about.
+    </p>
 
-        <div class="social-links">
-          <a href="#" aria-label="LinkedIn">LinkedIn</a>
-          <a href="#" aria-label="Google Scholar">Scholar</a>
-          <a href="#" aria-label="GitHub">GitHub</a>
-          <a href="#" aria-label="Email">Email</a>
-        </div>
+    <div class="social-links">
 
-      </div>
+      <!-- Replace # with your actual profile URLs -->
+      <a href="#" aria-label="LinkedIn" title="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
 
-      <div class="sidebar-bottom">
-        Your personal portfolio
-      </div>
-    </aside>
+      <a href="#" aria-label="GitHub" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
 
-    <!-- RIGHT CONTENT -->
-    <main class="main-content">
+      <a href="#" aria-label="Google Scholar" title="Google Scholar">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </a>
 
-      <!-- NAVIGATION -->
-      <nav class="top-nav" aria-label="Main navigation">
-        <a href="#about" class="active">About Me</a>
-        <a href="#experience">Work Experience</a>
-        <a href="#education">Education</a>
-        <a href="#publications">Publications</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact Me</a>
-      </nav>
+      <a href="mailto:your.email@example.com"
+         aria-label="Email" title="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+
+    </div>
+
+    <p class="sidebar-note">Research · Innovation · Marine Science</p>
+
+  </aside>
+
+
+  <!-- ==========================================
+       MAIN CONTENT
+       ========================================== -->
+
+  <main class="main-content">
+
+    <!-- TOP NAVIGATION -->
+
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#about" class="active">About Me</a>
+      <a href="#experience">Work Experience</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact Me</a>
+    </nav>
+
+
+    <div class="content-wrapper">
 
       <!-- ABOUT ME -->
-      <section class="content-section" id="about">
-        <div class="section-icon" aria-hidden="true">♙</div>
-        <div class="section-body">
-          <h2>About Me</h2>
-          <p class="placeholder">
-            Write a short introduction about yourself here...
-          </p>
+
+      <section class="section" id="about">
+
+        <p class="eyebrow">Welcome to my portfolio</p>
+
+        <h2 class="intro-title">
+          Exploring the ocean.<br>
+          Advancing <span>science.</span>
+        </h2>
+
+        <div class="section-heading">
+          <div class="section-icon">
+            <i class="fa-solid fa-fish"></i>
+          </div>
+          <div>
+            <h2>About Me</h2>
+            <p class="section-subtitle">Background and research interests</p>
+          </div>
         </div>
+
+        <p>
+          Write your professional introduction here. Describe your
+          background, current position, research interests, and the
+          questions or challenges that motivate your work.
+        </p>
+
+        <p>
+          You can also explain your experience connecting marine
+          science with technology, data analysis, environmental
+          assessment, or other areas relevant to your career goals.
+        </p>
+
       </section>
+
 
       <!-- WORK EXPERIENCE -->
-      <section class="content-section" id="experience">
-        <div class="section-icon" aria-hidden="true">▣</div>
-        <div class="section-body">
-          <h2>Work Experience</h2>
 
-          <div class="entry">
-            <h3>Job Title / Position</h3>
-            <p class="meta">Organization · Dates</p>
-            <p class="placeholder">
-              Describe your responsibilities and achievements here...
-            </p>
+      <section class="section" id="experience">
+
+        <div class="section-heading">
+          <div class="section-icon">
+            <i class="fa-solid fa-microscope"></i>
           </div>
-
-          <div class="entry">
-            <h3>Previous Job Title / Position</h3>
-            <p class="meta">Organization · Dates</p>
-            <p class="placeholder">
-              Describe your responsibilities and achievements here...
-            </p>
+          <div>
+            <h2>Work Experience</h2>
+            <p class="section-subtitle">Professional roles and projects</p>
           </div>
         </div>
+
+        <div class="timeline">
+
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Position or Job Title</h3>
+                <p class="item-organization">Company or Organization</p>
+              </div>
+              <span class="item-date">Year – Present</span>
+            </div>
+
+            <p>
+              Add a short description of your role, responsibilities,
+              and the main purpose of your work.
+            </p>
+
+            <ul>
+              <li>Describe a key responsibility or achievement.</li>
+              <li>Highlight relevant technical or research skills.</li>
+              <li>Explain the contribution or impact of your work.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Previous Position</h3>
+                <p class="item-organization">Previous Employer or Project</p>
+              </div>
+              <span class="item-date">Start – End Year</span>
+            </div>
+
+            <p>
+              Describe your previous experience and the skills,
+              expertise, or achievements you developed in this role.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Research or Project Experience</h3>
+                <p class="item-organization">Research Group or Institution</p>
+              </div>
+              <span class="item-date">Start – End Year</span>
+            </div>
+
+            <p>
+              Describe a relevant research project, collaboration,
+              or professional activity.
+            </p>
+          </article>
+
+        </div>
+
       </section>
+
 
       <!-- EDUCATION -->
-      <section class="content-section" id="education">
-        <div class="section-icon" aria-hidden="true">♧</div>
-        <div class="section-body">
-          <h2>Education</h2>
 
-          <div class="entry">
-            <h3>Degree / Qualification</h3>
-            <p class="meta">Institution · Dates</p>
-            <p class="placeholder">
-              Add details about your studies here...
-            </p>
+      <section class="section" id="education">
+
+        <div class="section-heading">
+          <div class="section-icon">
+            <i class="fa-solid fa-book-open"></i>
           </div>
-
-          <div class="entry">
-            <h3>Previous Degree / Qualification</h3>
-            <p class="meta">Institution · Dates</p>
-            <p class="placeholder">
-              Add details about your studies here...
-            </p>
+          <div>
+            <h2>Education</h2>
+            <p class="section-subtitle">Academic background</p>
           </div>
         </div>
+
+        <div class="timeline">
+
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Doctoral Degree / PhD</h3>
+                <p class="item-organization">University or Institution</p>
+              </div>
+              <span class="item-date">Year – Present</span>
+            </div>
+
+            <p>
+              Add your research topic, academic focus, and relevant
+              information about your doctoral work.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Master's Degree</h3>
+                <p class="item-organization">University or Institution</p>
+              </div>
+              <span class="item-date">Start – End Year</span>
+            </div>
+
+            <p>
+              Add your degree specialization, thesis topic, or
+              other relevant academic achievements.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Bachelor's Degree</h3>
+                <p class="item-organization">University or Institution</p>
+              </div>
+              <span class="item-date">Start – End Year</span>
+            </div>
+
+            <p>
+              Add your field of study and relevant academic background.
+            </p>
+          </article>
+
+        </div>
+
       </section>
+
 
       <!-- PUBLICATIONS -->
-      <section class="content-section" id="publications">
-        <div class="section-icon" aria-hidden="true">▤</div>
-        <div class="section-body">
-          <h2>Publications</h2>
 
-          <div class="entry">
-            <h3>Publication Title</h3>
-            <p class="placeholder">
-              Authors · Journal · Year · Add publication link here...
-            </p>
+      <section class="section" id="publications">
+
+        <div class="section-heading">
+          <div class="section-icon">
+            <i class="fa-solid fa-file-lines"></i>
           </div>
-
-          <div class="entry">
-            <h3>Another Publication Title</h3>
-            <p class="placeholder">
-              Authors · Journal · Year · Add publication link here...
-            </p>
+          <div>
+            <h2>Publications</h2>
+            <p class="section-subtitle">Selected scientific contributions</p>
           </div>
         </div>
+
+        <article class="publication-item">
+          <h3 class="publication-title">
+            Title of Your Scientific Publication
+          </h3>
+
+          <p class="publication-meta">
+            Author names · Journal Name · Publication Year
+          </p>
+
+          <p>
+            Add a brief summary of the paper and its scientific
+            contribution, or leave this area for the citation alone.
+          </p>
+
+          <a class="publication-link"
+             href="#"
+             target="_blank"
+             rel="noopener noreferrer">
+            Read publication
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </article>
+
+        <article class="publication-item">
+          <h3 class="publication-title">
+            Title of Another Publication
+          </h3>
+
+          <p class="publication-meta">
+            Author names · Journal Name · Publication Year
+          </p>
+
+          <p>
+            Add a short description of this publication or research contribution.
+          </p>
+
+          <a class="publication-link"
+             href="#"
+             target="_blank"
+             rel="noopener noreferrer">
+            Read publication
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </article>
+
+        <article class="publication-item">
+          <h3 class="publication-title">
+            Title of an Additional Publication
+          </h3>
+
+          <p class="publication-meta">
+            Author names · Journal Name · Publication Year
+          </p>
+
+          <p>
+            Add details about another paper, report, or scientific contribution.
+          </p>
+
+          <a class="publication-link"
+             href="#"
+             target="_blank"
+             rel="noopener noreferrer">
+            Read publication
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </article>
+
       </section>
+
 
       <!-- SKILLS -->
-      <section class="content-section" id="skills">
-        <div class="section-icon" aria-hidden="true">⚙</div>
-        <div class="section-body">
-          <h2>Skills</h2>
-          <p class="placeholder">
-            List your technical and professional skills here...
-          </p>
 
-          <div class="skills-list">
-            <span class="skill-tag">Skill 1</span>
-            <span class="skill-tag">Skill 2</span>
-            <span class="skill-tag">Skill 3</span>
-            <span class="skill-tag">Skill 4</span>
-            <span class="skill-tag">Skill 5</span>
+      <section class="section" id="skills">
+
+        <div class="section-heading">
+          <div class="section-icon">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <h2>Skills</h2>
+            <p class="section-subtitle">Technical and professional expertise</p>
           </div>
         </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-card">
+            <h3>
+              <i class="fa-solid fa-water"></i>
+              Marine Science
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Add a skill</span>
+              <span class="skill-tag">Add a skill</span>
+              <span class="skill-tag">Add a skill</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>
+              <i class="fa-solid fa-chart-line"></i>
+              Data Analysis
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Add a tool</span>
+              <span class="skill-tag">Add a tool</span>
+              <span class="skill-tag">Add a tool</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>
+              <i class="fa-solid fa-code"></i>
+              Programming and Modeling
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Add a language</span>
+              <span class="skill-tag">Add a model</span>
+              <span class="skill-tag">Add a tool</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>
+              <i class="fa-solid fa-people-group"></i>
+              Professional Skills
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Research</span>
+              <span class="skill-tag">Collaboration</span>
+              <span class="skill-tag">Communication</span>
+            </div>
+          </div>
+
+        </div>
+
       </section>
+
 
       <!-- CONTACT -->
-      <section class="content-section" id="contact">
-        <div class="section-icon" aria-hidden="true">✉</div>
-        <div class="section-body">
-          <h2>Contact Me</h2>
-          <p class="placeholder">
-            Add your email address and professional contact links here...
-          </p>
+
+      <section class="section" id="contact">
+
+        <div class="section-heading">
+          <div class="section-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div>
+            <h2>Contact Me</h2>
+            <p class="section-subtitle">Professional inquiries and collaboration</p>
+          </div>
         </div>
+
+        <div class="contact-card">
+          <h3>Let's connect</h3>
+
+          <p>
+            Write a short invitation for professional opportunities,
+            research collaborations, or other relevant inquiries.
+          </p>
+
+          <a class="contact-button"
+             href="mailto:your.email@example.com">
+            <i class="fa-solid fa-paper-plane"></i>
+            Get in touch
+          </a>
+        </div>
+
       </section>
 
+
+      <!-- FOOTER -->
+
       <footer>
-        © Your Name
+        <p>
+          &copy; <span id="current-year"></span> Your Name.
+          All rights reserved.
+        </p>
       </footer>
 
-    </main>
-  </div>
+    </div>
+
+  </main>
+
+
+  <!-- ==========================================
+       JAVASCRIPT
+       Active navigation and automatic year.
+       ========================================== -->
 
   <script>
+    // Automatically update the copyright year.
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    // Highlight the navigation link for the current section.
+    const sections = document.querySelectorAll("main section[id]");
     const navLinks = document.querySelectorAll(".top-nav a");
-    const sections = document.querySelectorAll(".content-section");
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            navLinks.forEach(link => {
-              link.classList.toggle(
-                "active",
-                link.getAttribute("href") === "#" + entry.target.id
-              );
-            });
-          }
-        });
-      },
-      {
-        rootMargin: "-20% 0px -65% 0px"
-      }
-    );
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => {
+                const isActive =
+                  link.getAttribute("href") === "#" + entry.target.id;
 
-    sections.forEach(section => observer.observe(section));
+                link.classList.toggle("active", isActive);
+              });
+            }
+          });
+        },
+        {
+          rootMargin: "-20% 0px -65% 0px",
+          threshold: 0
+        }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    }
+
+    // Close the menu highlight behavior gracefully when navigating.
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.forEach((item) => item.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
   </script>
+
 </body>
 </html>

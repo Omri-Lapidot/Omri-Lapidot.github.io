@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -291,115 +290,77 @@
 
     /* EXPERIENCE AND EDUCATION ITEMS */
 
-    
-/* HORIZONTAL WORK EXPERIENCE TIMELINE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
 
-.experience-timeline {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: 35px 0 15px;
-  padding: 0 8px;
-}
+    .timeline-item {
+      position: relative;
+      padding: 24px 26px;
+      background: var(--white);
+      border: 1px solid #e6edf0;
+      border-left: 4px solid var(--teal);
+      border-radius: 9px;
+      box-shadow: 0 4px 18px rgba(17, 45, 60, 0.035);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
 
-.experience-timeline::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 8px;
-  right: 18px;
-  height: 4px;
-  background: #444;
-  transform: translateY(-50%);
-}
+    .timeline-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(17, 45, 60, 0.08);
+    }
 
-.experience-timeline::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 6px);
-  right: 6px;
-  border-left: 12px solid #444;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-}
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 8px;
+    }
 
-.experience-point {
-  position: relative;
-  min-width: 0;
-  height: 210px;
-}
+    .item-title {
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
 
-.experience-dot {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 2;
-  width: 19px;
-  height: 19px;
-  background: #329b98;
-  border: 3px solid #d8efed;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
+    .item-organization {
+      color: #087f82;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 3px;
+    }
 
-.experience-details {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: 0 7px;
-  text-align: center;
-  overflow-wrap: anywhere;
-}
+    .item-date {
+      flex-shrink: 0;
+      padding: 5px 10px;
+      background: var(--light-teal);
+      color: #087f82;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 700;
+    }
 
-.experience-point:nth-child(odd) .experience-details {
-  bottom: calc(50% + 20px);
-}
+    .timeline-item p {
+      margin-top: 12px;
+      margin-bottom: 0;
+      font-size: 14px;
+    }
 
-.experience-point:nth-child(even) .experience-details {
-  top: calc(50% + 20px);
-}
+    .timeline-item ul {
+      padding-left: 20px;
+      margin-top: 12px;
+    }
 
-.experience-year {
-  display: block;
-  color: var(--navy);
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.5;
-  margin-bottom: 5px;
-}
-
-.experience-role {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.experience-role strong {
-  display: block;
-  color: var(--text);
-  font-weight: 700;
-}
-
-/* Responsive timeline */
-
-@media (max-width: 760px) {
-  .experience-timeline {
-    grid-template-columns: repeat(3, minmax(145px, 1fr));
-    margin-top: 25px;
-  }
-
-  .experience-point {
-    height: 220px;
-  }
-
-  .experience-year {
-    font-size: 13px;
-  }
-
-  .experience-role {
-    font-size: 11px;
-  }
-}
+    .timeline-item li {
+      padding-left: 3px;
+      margin-bottom: 7px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
 
     /* PUBLICATIONS */
 
@@ -745,51 +706,75 @@
 
       <section class="section" id="experience">
 
-        
-<div class="experience-timeline">
+        <div class="section-heading">
+          <div class="section-icon">
+            <i class="fa-solid fa-microscope"></i>
+          </div>
+          <div>
+            <h2>Work Experience</h2>
+            <p class="section-subtitle">Professional roles and projects</p>
+          </div>
+        </div>
 
-  <!-- Experience 1: Above the line -->
-  <article class="experience-point">
-    <span class="experience-dot"></span>
+        <div class="timeline">
 
-    <div class="experience-details">
-      <span class="experience-year">2021–Present</span>
-      <p class="experience-role">
-        <strong>Position or Job Title</strong>
-        Company or Organization
-      </p>
-    </div>
-  </article>
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Position or Job Title</h3>
+                <p class="item-organization">Company or Organization</p>
+              </div>
+              <span class="item-date">Year – Present</span>
+            </div>
 
-  <!-- Experience 2: Below the line -->
-  <article class="experience-point">
-    <span class="experience-dot"></span>
+            <p>
+              Add a short description of your role, responsibilities,
+              and the main purpose of your work.
+            </p>
 
-    <div class="experience-details">
-      <span class="experience-year">2017–2021</span>
-      <p class="experience-role">
-        <strong>Previous Position</strong>
-        Company or Organization
-      </p>
-    </div>
-  </article>
+            <ul>
+              <li>Describe a key responsibility or achievement.</li>
+              <li>Highlight relevant technical or research skills.</li>
+              <li>Explain the contribution or impact of your work.</li>
+            </ul>
+          </article>
 
-  <!-- Experience 3: Above the line -->
-  <article class="experience-point">
-    <span class="experience-dot"></span>
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Previous Position</h3>
+                <p class="item-organization">Previous Employer or Project</p>
+              </div>
+              <span class="item-date">Start – End Year</span>
+            </div>
 
-    <div class="experience-details">
-      <span class="experience-year">2012–2017</span>
-      <p class="experience-role">
-        <strong>Earlier Position</strong>
-        Company or Organization
-      </p>
-    </div>
-  </article>
+            <p>
+              Describe your previous experience and the skills,
+              expertise, or achievements you developed in this role.
+            </p>
+          </article>
 
-</div>
+          <article class="timeline-item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Research or Project Experience</h3>
+                <p class="item-organization">Research Group or Institution</p>
+              </div>
+              <span class="item-date">Start – End Year</span>
+            </div>
 
-        <!-- EDUCATION -->
+            <p>
+              Describe a relevant research project, collaboration,
+              or professional activity.
+            </p>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- EDUCATION -->
 
       <section class="section" id="education">
 
